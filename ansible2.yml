@@ -1,0 +1,10 @@
+- hosts: all
+  tasks:
+   - name: copy Deployment and service  from ansible to webserver
+     copy:
+       src: /home/ec2-user/
+       dest: /tmp/
+   - name: Run Dockercompose
+     shell: kubectl apply -f Deployment.yml
+   - name: create new service
+     shell: kubectl apply -f Service.yml
