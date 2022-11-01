@@ -1,12 +1,7 @@
 - hosts: all
-  tasks:
-   - name: Create a Deployment by reading the definition from a local file
-      kubernetes.core.k8s:
-       state: present
-       src: /home/ec2-user/Deployment.yml
-
-
-   - name: Create a Deployment by reading the definition from a local file
-      kubernetes.core.k8s:
-       state: present
-       src: /home/ec2-user/Services.yml      
+  become: true
+  tasks: 
+     - name: create new deployment
+       shell: kubectl apply -f Deployment.yml
+     - name: create new service
+       shell: kubectl apply -f Service.yml
