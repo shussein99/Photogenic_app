@@ -2,6 +2,6 @@
   become: true
   tasks: 
      - name: create new deployment
-       shell: kubectl apply -f Deployment.yml
+       shell: kubectl apply -f /home/ec2-user/Deployment.yml
      - name: create new service
-       shell: kubectl apply -f Service.yml
+       shell: kubectl apply -f /home/ec2-user/Service.yml
